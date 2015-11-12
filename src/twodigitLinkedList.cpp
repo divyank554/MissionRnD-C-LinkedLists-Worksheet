@@ -21,6 +21,24 @@ struct node {
 	struct node *next;
 };
 
-int convert_sll_2digit_to_int(struct node *head){
-	return 0;
+int convert_sll_2digit_to_int(struct node *head)
+{
+	struct node *temp1 = NULL;
+	int temp = 0;
+	temp1 = (struct node *)malloc(sizeof(struct node));
+	while (head->next != NULL)
+	{
+		temp = 10 * temp + head->digit1;
+		temp = 10 * temp + head->digit2;
+		temp1 = head;
+		head = temp1->next;
+		temp = 10 * temp + head->digit1;
+		temp = 10 * temp + head->digit2;
+		temp1 = head;
+		head = temp1->next;
+	}
+	temp = 10 * temp + head->digit1;
+	temp = 10 * temp + head->digit2;
+
+	return temp;
 }
